@@ -1,0 +1,6 @@
+Alumno{nombre='Angela Veron', edad=20, ciclo='DAW', notaMedia=7.1223}
+
+Alumno{nombre='Silvia Climent', edad=24, ciclo='DAM', notaMedia=5.5}
+
+Alumno{nombre='Jordi Costa', edad=22, ciclo='DAW', notaMedia=9.0}
+
