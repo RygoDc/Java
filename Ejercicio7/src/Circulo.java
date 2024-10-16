@@ -1,34 +1,38 @@
-class Circulo extends Figura{
+import java.util.ArrayList;
 
-    private double radio;
-
-    public Circulo(int x, int y, String color, double radio) {
-        super(x, y, color);
-        this.radio = radio;
+public class Circulo extends Figura{
+    int x;
+    int y;
+    public Circulo(String tipo,int x,int y,String color) {
+        this.tipo=tipo;
+        this.x=x;
+        this.y=y;
+        this.color=color;
     }
 
-    public double getRadio() {
-        return radio;
+    public int getX() {
+        return x;
     }
 
-    public void setRadio(double radio) {
-        this.radio = radio;
+    public void setX(int x) {
+        this.x = x;
     }
-//    @Override
-//    public double calcularArea(){
-//        return Math.PI * Math.pow(this.radio,2);
-//    }
-//
-//    @Override
-//    public double calcularPerimetro(){
-//        return 2 * Math.PI * this.radio;
-//    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
     @Override
     public String toString() {
         return "Circulo{" +
-                "radio=" + radio +
+                "x=" + x +
+                ", y=" + y +
                 ", color='" + color + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }

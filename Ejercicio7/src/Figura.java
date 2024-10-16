@@ -1,23 +1,27 @@
 abstract class Figura {
-    protected int x;
-    protected int y;
-    protected String color;
-
-    public Figura(int x, int y, String color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
+    String tipo;
+    String color;
+    public Figura() {
     }
-//
-//    public abstract double calcularArea();
-//    public abstract double calcularPerimetro();
 
     @Override
     public String toString() {
-        return "Figura{" +
-                "x=" + x +
-                ", y=" + y +
-                ", color='" + color + '\'' +
-                '}';
+        return "Figura{}";
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

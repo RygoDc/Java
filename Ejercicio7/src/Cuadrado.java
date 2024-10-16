@@ -1,34 +1,25 @@
 public class Cuadrado extends Figura{
-    private double lado;
-
-    public Cuadrado(int x, int y, String color, double lado) {
-        super(x, y, color);
-        this.lado = lado;
+    int x;
+    public Cuadrado(String tipo,int x, String color) {
+        this.tipo=tipo;
+        this.x=x;
+        this.color=color;
     }
 
-    public double getLado() {
-        return lado;
+    public int getX() {
+        return x;
     }
 
-    public void setLado(double lado) {
-        this.lado = lado;
+    public void setX(int x) {
+        this.x = x;
     }
-//
-//    @Override
-//    public double calcularArea() {
-//        return lado * lado;
-//    }
-//
-//    @Override
-//    public double calcularPerimetro() {
-//        return 4 * lado;
-//    }
 
     @Override
     public String toString() {
         return "Cuadrado{" +
-                "lado=" + lado +
+                "x=" + x +
                 ", color='" + color + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }

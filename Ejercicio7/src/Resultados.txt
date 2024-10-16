@@ -1,0 +1,2 @@
+Rectangulo{y=480, tipo='rectangulo', color='#ccccee', x=10}
+Rectangulo{y=350, tipo='rectangulo', color='#fff0f0', x=15}

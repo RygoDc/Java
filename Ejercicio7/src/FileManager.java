@@ -1,71 +1,102 @@
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class FileManager {
 
-    public String ruta;
-    public ArrayList<Figura> figuras;
+    String ruta = "C:\\Users\\ALUMNO\\Documents\\VSCODE\\Acceso a Datos\\Ejercicio7\\src\\figurasTXT.txt";
 
-    public FileManager(String ruta, ArrayList<Figura> figuras) {
+    FileManager(String ruta) {
         this.ruta = ruta;
-        this.figuras = figuras;
     }
 
-    public boolean Exists(){
-        File f = new File(ruta);
-        return f.exists();
+    FileManager() {
     }
 
-    public void importFromFile(){
-        try{
-            FileReader fileReader = new FileReader(ruta);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String linea;
-            while ((linea = bufferedReader.readLine()) != null) {
-                String[] datos = linea.split(" ");
-                if(datos.length <4 || !datos[datos.length-1].startsWith("#")){
-                    System.out.println("Figura no valida");
+    ArrayList<Figura> figuras = new ArrayList<>();
+    File file = new File(ruta);
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public boolean exist() {
+
+        if (file.exists()) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "FileManager{" +
+                "ruta='" + ruta + '\'' +
+                ", figuras=" + figuras +
+                ", file=" + file +
+                '}';
+    }
+
+    public void importFromFile() {
+        String linea = "";
+        try {
+
+
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
+            while ((linea = br.readLine()) != null) {
+
+                String[] palabras = linea.split(" ");
+                /*System.out.println(palabras[1]);*/
+                if (palabras.length < 4 || !palabras[palabras.length - 1].startsWith("#")) {
+                    System.out.println("Archivo no valido");
                     continue;
                 }
-                String tipo = datos[0];
-                int x = Integer.parseInt(datos[1]);
-                int y = Integer.parseInt(datos[3]);
-                String color = datos[datos.length-1];
 
-                if(tipo.toLowerCase()=="rectangulo"){
-                    int ancho = Integer.parseInt(datos[2]);
-                    int alto = Integer.parseInt(datos[4]);
 
-                    figuras.add(new Rectangulo(x,y,color,ancho,alto));
-                } else if (tipo.toLowerCase()== "circulo") {
-                    int radio = Integer.parseInt(datos[2]);
 
-                    figuras.add(new Circulo(x,y,color,radio));
-                } else if (tipo.toLowerCase()== "cuadrado") {
-                    int lado = Integer.parseInt(datos[2]);
+                if (palabras[0].equals("rectangulo")) {
 
-                    figuras.add(new Cuadrado(x,y,color,lado));
+                    int x = Integer.parseInt(palabras[1]);
+                    int y = Integer.parseInt(palabras[3]);
+                    String color = palabras[5];
+                    figuras.add(new Rectangulo(palabras[0], x, y, color));
+                } else if (palabras[0].equals("circulo")) {
+                    int x = Integer.parseInt(palabras[1]);
+                    int y = Integer.parseInt(palabras[3]);
+                    String color = palabras[5];
+                    figuras.add(new Circulo(palabras[0], x, y, color));
                 } else {
-                    System.out.println("Figura no encontrada");
+                    int x = Integer.parseInt(palabras[1]);
+                    String color = palabras[3];
+                    figuras.add(new Cuadrado(palabras[0], x, color));
                 }
+
+
             }
-            fileReader.close();
-            bufferedReader.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            System.out.println(e);
         }
+        System.out.println(figuras);
     }
-    public ArrayList<Figura> getDataFromFile(){
+
+    public ArrayList<Figura> getDataFromFile() {
         return figuras;
     }
-    public void exportToFile(String archivoSalida){
-        try (BufferedWriter escribir = new BufferedWriter(new FileWriter(archivoSalida))){
-            for (Figura figura : figuras){
-                escribir.write(figura.toString());
-                escribir.newLine();
+    public void createFile(){
+        BufferedWriter bf = null;
+        try{
+            bf=new BufferedWriter(new FileWriter("src/Resultados.txt"));
+            for(Figura l: this.figuras){
+                bf.write(l.toString());
+                bf.newLine();
             }
+            bf.close();
         } catch (IOException e) {
-            System.out.println("Error al escribir el archivo" + archivoSalida);
+            throw new RuntimeException(e);
         }
     }
 

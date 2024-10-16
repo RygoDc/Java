@@ -1,46 +1,36 @@
-public class Rectangulo extends Figura {
-
-    private double largo;
-    private double ancho;
-
-    public Rectangulo(int x, int y, String color, double largo, double ancho) {
-        super(x, y, color);
-        this.largo = largo;
-        this.ancho = ancho;
+public class Rectangulo extends Figura{
+    int x;
+    int y;
+    public Rectangulo(String tipo,int x,int y,String color) {
+        this.tipo=tipo;
+        this.x=x;
+        this.y=y;
+        this.color=color;
     }
 
-    public double getLargo() {
-        return largo;
+    public int getX() {
+        return x;
     }
 
-    public void setLargo(double largo) {
-        this.largo = largo;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public double getAncho() {
-        return ancho;
+    public int getY() {
+        return y;
     }
 
-    public void setAncho(double ancho) {
-        this.ancho = ancho;
+    public void setY(int y) {
+        this.y = y;
     }
-//
-//    @Override
-//    public double calcularArea() {
-//        return largo * ancho;
-//    }
-//
-//    @Override
-//    public double calcularPerimetro() {
-//        return 2 * largo + 2 * ancho;
-//    }
 
     @Override
     public String toString() {
         return "Rectangulo{" +
-                "largo=" + largo +
-                ", ancho=" + ancho +
+                "y=" + y +
+                ", tipo='" + tipo + '\'' +
                 ", color='" + color + '\'' +
+                ", x=" + x +
                 '}';
     }
 }
