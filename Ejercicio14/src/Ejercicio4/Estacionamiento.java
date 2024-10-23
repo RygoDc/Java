@@ -1,22 +1,31 @@
 package Ejercicio4;
 
-import java.util.LinkedList;
-
 public class Estacionamiento {
-    private LinkedList<Integer> lista = new LinkedList<>();
-    private final int capacidad = 5;
+    private int capacidad;
+    private int vehiculosDentro;
 
-    public void setLista(LinkedList<Integer> lista) {
-        this.lista = lista;
+    public Estacionamiento(int capacidad) {
+        this.capacidad = capacidad;
+        this.vehiculosDentro = 0;
     }
 
-    public void entrada(int coche) throws InterruptedException{
+    public void entrar(int coche) throws InterruptedException{
         synchronized (this){
-            while (lista.size() >= capacidad){
+            while (vehiculosDentro >= capacidad) {
+                System.out.println("Vehículo " + coche + " esperando, estacionamiento lleno.");
                 wait();
             }
-            this.lista.add(coche);
-            System.out.println("Entra el coche: " );
+            vehiculosDentro++;
+            System.out.println("Vehículo " + coche + " ha entrado. Vehículos dentro: " + vehiculosDentro);
+            notify();
+        }
+    }
+
+    public void salir(int coche) {
+        synchronized (this){
+            vehiculosDentro--;
+            System.out.println("Vehículo " + coche + " ha salido. Vehículos dentro: " + vehiculosDentro);
+            notify();
         }
     }
 
