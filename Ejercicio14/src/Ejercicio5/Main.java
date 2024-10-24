@@ -7,8 +7,10 @@ public class Main {
         Thread cocheNorte1= new Thread(() ->{
 
             try{
-                puente.cruzarNorte(1);
-                Thread.sleep(1000);
+                while(true) {
+                    puente.cruzarNorte(1);
+                    Thread.sleep((long) (Math.random() * 5000));
+                }
             }
             catch (InterruptedException e){
                 System.out.println("Error: "+e);
@@ -16,8 +18,10 @@ public class Main {
         });
         Thread cocheNorte2= new Thread(() ->{
             try{
-                puente.cruzarNorte(2);
-                Thread.sleep(1000);
+                while (true) {
+                    puente.cruzarNorte(2);
+                    Thread.sleep((long) (Math.random() * 5000));
+                }
             }
             catch (InterruptedException e){
                 System.out.println("Error: "+e);
@@ -25,8 +29,10 @@ public class Main {
         });
         Thread cocheSur1= new Thread(() ->{
             try{
-                puente.cruzarSur(1);
-                Thread.sleep(1000);
+                while(true) {
+                    puente.cruzarSur(1);
+                    Thread.sleep((long) (Math.random() * 5000));
+                }
             }
             catch (InterruptedException e){
                 System.out.println("Error: "+e);
@@ -34,8 +40,10 @@ public class Main {
         });
         Thread cocheSur2= new Thread(() ->{
             try{
+                while (true){
                 puente.cruzarSur(2);
-                Thread.sleep(1000);
+                Thread.sleep((long) (Math.random() * 5000));
+                }
             }
             catch (InterruptedException e){
                 System.out.println("Error: "+e);
