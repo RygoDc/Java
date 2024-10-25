@@ -14,9 +14,9 @@ public class Main {
                 System.out.println("Error: "+e);
             }
         };
-        Thread trabajador1 = new Thread(trabajador,"Trabajador 1");
-        Thread trabajador2 = new Thread(trabajador,"Trabajador 2");
-        Thread trabajador3 = new Thread(trabajador,"Trabajador 3");
+        Thread trabajador1 = new Thread(trabajador,"Pepe");
+        Thread trabajador2 = new Thread(trabajador,"Manolo");
+        Thread trabajador3 = new Thread(trabajador,"Paco");
 
         trabajador1.start();
         trabajador2.start();

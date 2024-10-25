@@ -1,17 +1,16 @@
 package Ejercicio7;
 
-
-
 public class Main {
     public static void main(String[] args) {
 
-        Barrera barrera = new Barrera();
+        Barrera barrera = new Barrera(3);
 
         Runnable hilo = () ->{
             String nombre = Thread.currentThread().getName();
 
             try{
-                barrera.esperarInicio(nombre);
+                Thread.sleep((int) (Math.random()*1000));
+                barrera.esperarBarrera(nombre);
             }catch (InterruptedException e){
                 System.out.println("Error: "+e);
             }
@@ -23,14 +22,5 @@ public class Main {
         hilo1.start();
         hilo2.start();
         hilo3.start();
-
-        try {
-            Thread.sleep(3000);
-        }
-        catch (InterruptedException e){
-            System.out.println("Error:" +e);
-        }
-
-        barrera.iniciarJuntos();
     }
 }

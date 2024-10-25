@@ -5,7 +5,7 @@ public class Fabrica {
 
     public synchronized void esperarInicio(String trabajador) throws InterruptedException{
         while (!this.llegaMaterial){
-            System.out.println(trabajador+ " esta esperando para que llegue el material");
+            System.out.println(trabajador+ " esta esperando a que llegue el material");
             wait();
         }
         System.out.println(trabajador+ " ha comenzado a trabajar");
