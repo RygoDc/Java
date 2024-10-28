@@ -1,0 +1,7 @@
+Juan Perez |8.5
+Ana Lopez |7.5
+rodrigo|10.0
+Juan Perez |8.5
+Ana Lopez |7.5
+rodrigo|10.0
+kike|3.0
