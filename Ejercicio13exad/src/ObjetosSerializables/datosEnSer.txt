@@ -1,0 +1,4 @@
+Class: Persona
+serialVersionID: 1L
+nombre: "Juan"
+edad: 27
