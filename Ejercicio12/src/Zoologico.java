@@ -72,9 +72,8 @@ public class Zoologico {
                     System.out.println();
                     break;
                 case 4:
-                    ArrayList<Gestionable> gestion = null;
                     try(FileInputStream fis = new FileInputStream(ruta); ObjectInputStream ois = new ObjectInputStream(fis)){
-                        gestion = (ArrayList<Gestionable>) ois.readObject();
+                        ArrayList<Gestionable> gestion  = (ArrayList<Gestionable>) ois.readObject();
                         System.out.println(gestion.toString());
                     } catch (FileNotFoundException e) {
                         System.out.println("Error:" +e );

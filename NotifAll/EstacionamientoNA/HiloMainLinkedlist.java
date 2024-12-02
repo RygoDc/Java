@@ -1,3 +1,4 @@
+package NotifAll.EstacionamientoNA;
 
 import java.util.LinkedList;
 
@@ -27,7 +28,7 @@ class Aparcamiento{
 
 }
 
-public class Main{
+public class HiloMainLinkedlist {
     public static void main(String[] args) {
         Aparcamiento aparcamiento = new Aparcamiento();
 
